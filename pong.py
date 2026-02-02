@@ -51,7 +51,7 @@ class Ball:
     def draw(self, screen):
         pygame.draw.circle(screen, "white", self.rect.center, 10)
 
-# ---------- OBJECTS ----------
+#OBJECTS 
 
 player = Paddle(WIDTH - 100, HEIGHT / 2)
 opponent = Paddle(100, HEIGHT / 2)
@@ -81,10 +81,12 @@ while True:
     if ball.rect.x <= 0:
         player_score += 1
         ball.reset()
+      
 
     if ball.rect.x >= WIDTH:
         opponent_score += 1
         ball.reset()
+        
 
     # Paddle collisions
     if player.rect.x - ball.rect.width <= ball.rect.x <= player.rect.right and \
