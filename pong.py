@@ -51,7 +51,7 @@ class Ball:
     def draw(self, screen):
         pygame.draw.circle(screen, "white", self.rect.center, 10)
 
-#OBJECTS 
+#Objekter 
 
 player = Paddle(WIDTH - 100, HEIGHT / 2)
 opponent = Paddle(100, HEIGHT / 2)
@@ -59,7 +59,7 @@ ball = Ball()
 
 player_score, opponent_score = 0, 0
 
-# ---------- GAME LOOP ----------
+# Game loop
 
 while True:
     keys_pressed = pygame.key.get_pressed()
@@ -71,7 +71,10 @@ while True:
             pygame.quit()
             sys.exit()
 
-    # Ball collisions with walls
+
+
+
+    # Ball kollisjon med veggene
     if ball.rect.y >= HEIGHT:
         ball.y_speed = -1
     if ball.rect.y <= 0:
@@ -86,9 +89,9 @@ while True:
     if ball.rect.x >= WIDTH:
         opponent_score += 1
         ball.reset()
-        
-
-    # Paddle collisions
+          
+   
+    # Paddle kollisjon
     if player.rect.x - ball.rect.width <= ball.rect.x <= player.rect.right and \
        ball.rect.y in range(player.rect.top - ball.rect.width, player.rect.bottom + ball.rect.width):
         ball.x_speed = -1
@@ -96,6 +99,12 @@ while True:
     if opponent.rect.x - ball.rect.width <= ball.rect.x <= opponent.rect.right and \
        ball.rect.y in range(opponent.rect.top - ball.rect.width, opponent.rect.bottom + ball.rect.width):
         ball.x_speed = 1
+
+    
+
+
+    if player_score > opponent_score:
+        ball.x_speed = 2
 
     opponent.move_ai(ball)
     ball.move()
