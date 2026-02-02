@@ -9,7 +9,7 @@ SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pong!")
 CLOCK = pygame.time.Clock()
 
-# ---------- CLASSES ----------
+#Klasser
 
 class Paddle:
     def __init__(self, x, y):
