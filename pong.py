@@ -56,7 +56,6 @@ class Ball:
 player = Paddle(WIDTH - 100, HEIGHT / 2)
 opponent = Paddle(100, HEIGHT / 2)
 ball = Ball()
-
 player_score, opponent_score = 0, 0
 
 # Game loop
@@ -101,17 +100,16 @@ while True:
         ball.x_speed = 1
 
     
+    
 
 
-    if player_score > opponent_score:
-        ball.x_speed = 2
+   
 
     opponent.move_ai(ball)
     ball.move()
 
     # Draw
     SCREEN.fill("black")
-
     player.draw(SCREEN)
     opponent.draw(SCREEN)
     ball.draw(SCREEN)
